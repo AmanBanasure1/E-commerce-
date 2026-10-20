@@ -8,7 +8,7 @@ export default async function handler(req, res) {
   }
 
   const apiKey = process.env.GEMINI_API_KEY;
-  const model = process.env.GEMINI_MODEL;
+  const model = "gemini-2.5-flash";
 
   if (!apiKey || !model) {
     return res.status(500).json({
@@ -87,9 +87,9 @@ ${JSON.stringify(product)}
 
   try {
     const url =
-      "https://generativelanguage.googleapis.com/v1beta/models/" +
-      encodeURIComponent(model) +
-      ":generateContent";
+  "https://generativelanguage.googleapis.com/v1beta/models/" +
+  encodeURIComponent(model) +
+  ":generateContent";
 
     const apiResponse = await fetch(url, {
       method: "POST",
