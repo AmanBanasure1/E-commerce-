@@ -111,10 +111,17 @@ ${JSON.stringify(product)}
     const data = await apiResponse.json();
 
     if (!apiResponse.ok) {
-      console.error("AI provider error:", data.error?.status);
-      return res.status(502).json({
-        error: "AI service failed. Check model access and API limits."
-      });
+  console.error("Gemini API error:", {
+    httpStatus: apiResponse.status,
+    status: data.error?.status,
+    message: data.error?.message
+  });
+
+  return res.status(502).json({
+    error: "Gemini API failed. HTTP " + apiResponse.status,
+    code: data.error?.status || "UNKNOWN",
+    details: data.error?.message || "No error details"
+  });
     }
 
     const text = data.candidates?.[0]?.content?.parts
