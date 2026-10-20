@@ -1,0 +1,55 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ShopBoost AI - Listing Optimizer</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="container">
+    <h1>ShopBoost AI</h1>
+    <p>Improve your product listings with AI.</p>
+
+    <form id="productForm">
+      <label>Product name *</label>
+      <input name="name" required maxlength="120"
+        placeholder="Blue printed kurti">
+
+      <label>Price (₹) *</label>
+      <input name="price" type="number" min="0"
+        step="0.01" required placeholder="799">
+
+      <label>Material or category</label>
+      <input name="category" maxlength="100"
+        placeholder="Cotton, clothing">
+
+      <label>Product features *</label>
+      <textarea name="features" required maxlength="1500"
+        placeholder="Colour, sizes, fabric details..."></textarea>
+
+      <label>Target customer</label>
+      <input name="audience" maxlength="150"
+        placeholder="Women looking for casual wear">
+
+      <label>Existing description</label>
+      <textarea name="description" maxlength="2000"
+        placeholder="Optional current description"></textarea>
+
+      <button id="generateBtn" type="submit">
+        Generate Listing
+      </button>
+    </form>
+
+    <p id="status" role="status"></p>
+
+    <section id="result" hidden>
+      <h2>Your improved listing</h2>
+      <pre id="output"></pre>
+      <button id="copyBtn" type="button">Copy Result</button>
+    </section>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
